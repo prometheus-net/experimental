@@ -1,0 +1,19 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+
+    <AssemblyName>prometheus-net.Experimental.NetStandard</AssemblyName>
+    <RootNamespace>Prometheus.Experimental</RootNamespace>
+
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+    <CheckForOverflowUnderflow>true</CheckForOverflowUnderflow>
+
+    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="prometheus-net" Version="4.1.1" />
+  </ItemGroup>
+
+</Project>
