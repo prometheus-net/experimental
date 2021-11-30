@@ -53,7 +53,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<PackageReference Include="Koek.CodeAnalysis" Version="2021.1130.17702">
+		<PackageReference Include="Koek.CodeAnalysis" Version="2021.1130.44201">
 			<PrivateAssets>all</PrivateAssets>
 			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
 		</PackageReference>
@@ -65,6 +65,6 @@
 	</ItemGroup>
 
 	<PropertyGroup>
-		<CodeAnalysisRuleset>$(PkgKoek_CodeAnalysis)\content\CodeAnalysis\CodeAnalysis.ruleset</CodeAnalysisRuleset>
+		<CodeAnalysisRuleset>$(PkgKoek_CodeAnalysis)\content\CodeAnalysis.ruleset</CodeAnalysisRuleset>
 	</PropertyGroup>
 </Project>
