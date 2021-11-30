@@ -30,10 +30,12 @@ jobs:
     - name: Test
       run: dotnet test --configuration Release --no-restore --verbosity normal --filter Name\\!~_WindowsOnly
     - name: Package
-      run: dotnet pack --configuration Release --no-restore --output . --include-source -p:PackageVersion="${{ steps.make_nuget_version_string.outputs.NUGET_VERSION_STRING }}"
+      run: dotnet pack --configuration Release --no-restore --output . --include-symbols -p:SymbolPackageFormat=snupkg -p:PackageVersion="${{ steps.make_nuget_version_string.outputs.NUGET_VERSION_STRING }}"
     - uses: actions/upload-artifact@v2
       with:
         name: nupkg
-        path: '*.nupkg'
+        path: |
+          *.nupkg
+          *.snupkg
     - name: Publish
       run: nuget push -ApiKey ${{ secrets.nuget_api_key }} -Source https://api.nuget.org/v3/index.json *.nupkg
