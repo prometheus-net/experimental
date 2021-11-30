@@ -1,4 +1,4 @@
-name: Build
+name: Build (pr)
 
 on:
   pull_request:
@@ -11,35 +11,26 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
-      with:
-        lfs: true
     - name: Setup .NET Core
       uses: actions/setup-dotnet@v1
       with:
-        dotnet-version: 5.0.101
+        dotnet-version: 6.0.x
     - name: Install dependencies
       run: dotnet restore
     - id: make_version_string
-      uses: sandersaares-actions/make-version-string@master
+      uses: sandersaares-actions/make-time-based-version-string@master
       with:
-        assemblyInfoPath: NetStandard/AssemblyInfo.cs
-        primaryBranch: 'main'
+        buildType: pr
     - id: make_nuget_version_string
-      uses: sandersaares-actions/make-nuget-version-string@main
+      uses: sandersaares-actions/make-time-based-nuget-version-string@main
       with:
-        versionstring: ${{ steps.make_version_string.outputs.versionstring }}
-        releaseType: cb
-    - uses: sandersaares-actions/expand-tokens@master
-      env:
-        VERSIONSTRING: ${{ steps.make_nuget_version_string.outputs.nugetVersionstring }}
-      with:
-        path: prometheus-net.Experimental.nuspec
+        versionstring: ${{ steps.make_version_string.outputs.VERSION_STRING }}
     - name: Build
       run: dotnet build --configuration Release --no-restore
     - name: Test
       run: dotnet test --configuration Release --no-restore --verbosity normal --filter Name\\!~_WindowsOnly
     - name: Package
-      run: nuget pack prometheus-net.Experimental.nuspec
+      run: dotnet pack --configuration Release --no-restore --include-source -p:PackageVersion="${{ steps.make_nuget_version_string.outputs.NUGET_VERSION_STRING }}"
     - uses: actions/upload-artifact@v2
       with:
         name: nupkg
