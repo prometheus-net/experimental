@@ -18,7 +18,7 @@ jobs:
     - name: Install dependencies
       run: dotnet restore
     - id: make_version_string
-      uses: sandersaares-actions/make-time-based-version-string@master
+      uses: sandersaares-actions/make-time-based-version-string@main
       with:
         buildType: pr
     - id: make_nuget_version_string
