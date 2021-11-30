@@ -26,6 +26,8 @@
 		<PackageTags>prometheus metrics</PackageTags>
 		<PackageLicenseExpression>MIT</PackageLicenseExpression>
 
+		<EmbedUntrackedSources>true</EmbedUntrackedSources>
+
 		<EnforceCodeStyleInBuild>True</EnforceCodeStyleInBuild>
 		<EnableNETAnalyzers>True</EnableNETAnalyzers>
 		<AnalysisLevel>preview</AnalysisLevel>
