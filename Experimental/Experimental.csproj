@@ -1,0 +1,77 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFramework>netstandard2.0</TargetFramework>
+
+		<AssemblyName>prometheus-net.Experimental</AssemblyName>
+		<RootNamespace>Prometheus.Experimental</RootNamespace>
+
+		<TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+		<CheckForOverflowUnderflow>true</CheckForOverflowUnderflow>
+
+		<GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+
+		<GenerateDocumentationFile>True</GenerateDocumentationFile>
+
+		<SignAssembly>True</SignAssembly>
+
+		<AssemblyOriginatorKeyFile>$(SolutionDir)\keypair.snk</AssemblyOriginatorKeyFile>
+
+		<PackageId></PackageId>
+
+		<Authors>sandersaares</Authors>
+
+		<Product></Product>
+
+		<PackageProjectUrl>https://github.com/prometheus-net/experimental</PackageProjectUrl>
+
+		<Copyright>Sander Saares</Copyright>
+
+		<Description>Addons to prometheus-net that may be useful but are completely unstable, published without any guarantees and may go away in the future.</Description>
+
+		<PackageReadmeFile>Readme.md</PackageReadmeFile>
+
+		<RepositoryUrl>https://github.com/prometheus-net/experimental.git</RepositoryUrl>
+
+		<PackageTags>prometheus metrics</PackageTags>
+
+		<PackageLicenseExpression>MIT</PackageLicenseExpression>
+
+		<EnforceCodeStyleInBuild>True</EnforceCodeStyleInBuild>
+
+		<EnableNETAnalyzers>True</EnableNETAnalyzers>
+
+		<AnalysisLevel>preview</AnalysisLevel>
+
+		<CodeAnalysisRuleSet></CodeAnalysisRuleSet>
+	</PropertyGroup>
+
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+		<WarningLevel>5</WarningLevel>
+		<NoWarn>1701;1702;1591</NoWarn>
+	</PropertyGroup>
+
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+		<WarningLevel>5</WarningLevel>
+		<NoWarn>1701;1702;1591</NoWarn>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<None Include="..\Readme.md">
+			<Pack>True</Pack>
+			<PackagePath>\</PackagePath>
+		</None>
+	</ItemGroup>
+
+	<ItemGroup>
+		<PackageReference Include="Koek.CodeAnalysis" Version="2021.1130.17702">
+		  <PrivateAssets>all</PrivateAssets>
+		  <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+		</PackageReference>
+		<PackageReference Include="prometheus-net" Version="4.1.1" />
+	</ItemGroup>
+
+	<PropertyGroup>
+		<CodeAnalysisRuleset>$(PkgKoek_CodeAnalysis)\content\CodeAnalysis\CodeAnalysis.ruleset</CodeAnalysisRuleset>
+	</PropertyGroup>
+</Project>

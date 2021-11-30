@@ -52,54 +52,60 @@ namespace Prometheus.Experimental
             IntervalDuration.Dispose();
         }
 
-        private static readonly Histogram BaseIterationDuration = Metrics.CreateHistogram("critical_cycle_iteration_duration_seconds", "Histogram of iteration durations.", new HistogramConfiguration
-        {
-            LabelNames = new[] { "name" },
-            Buckets = new[]
+        private static readonly Histogram BaseIterationDuration = Metrics.CreateHistogram(
+            "critical_cycle_iteration_duration_seconds",
+            "Histogram of iteration durations.",
+            new HistogramConfiguration
             {
-                0.000001,
-                0.000005,
-                0.00001,
-                0.00005,
-                0.0001,
-                0.0002,
-                0.0003,
-                0.0004,
-                0.0005,
-                0.0006,
-                0.0007,
-                0.0008,
-                0.0009,
-                0.001,
-                0.01,
-                0.02,
-                0.03,
-                0.04,
-                0.05
-            }
-        });
+                LabelNames = new[] { "name" },
+                Buckets = new[]
+                {
+                    0.000001,
+                    0.000005,
+                    0.00001,
+                    0.00005,
+                    0.0001,
+                    0.0002,
+                    0.0003,
+                    0.0004,
+                    0.0005,
+                    0.0006,
+                    0.0007,
+                    0.0008,
+                    0.0009,
+                    0.001,
+                    0.01,
+                    0.02,
+                    0.03,
+                    0.04,
+                    0.05
+                }
+            });
 
-        private static readonly Histogram BaseIntervalDuration = Metrics.CreateHistogram("critical_cycle_interval_duration_seconds", "Histogram of durations for the interval between iterations.", new HistogramConfiguration
-        {
-            LabelNames = new[] { "name" },
-            Buckets = new[]
+        private static readonly Histogram BaseIntervalDuration = Metrics.CreateHistogram(
+            "critical_cycle_interval_duration_seconds",
+            "Histogram of durations for the interval between iterations.",
+            new HistogramConfiguration
             {
-                0.0001,
-                0.0005,
-                0.001,
-                0.005,
-                0.01,
-                0.02,
-                0.03,
-                0.04,
-                0.05,
-                0.06,
-                0.07,
-                0.08,
-                0.09,
-                0.1,
-                1.0
-            }
-        });
+                LabelNames = new[] { "name" },
+                Buckets = new[]
+                {
+                    0.0001,
+                    0.0005,
+                    0.001,
+                    0.005,
+                    0.01,
+                    0.02,
+                    0.03,
+                    0.04,
+                    0.05,
+                    0.06,
+                    0.07,
+                    0.08,
+                    0.09,
+                    0.1,
+                    1.0
+                }
+            });
     }
 }
