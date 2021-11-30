@@ -26,8 +26,10 @@
 		<PackageTags>prometheus metrics</PackageTags>
 		<PackageLicenseExpression>MIT</PackageLicenseExpression>
 
-		<EmbedUntrackedSources>true</EmbedUntrackedSources>
-
+		<IncludeSymbols>true</IncludeSymbols>
+		<SymbolPackageFormat>snupkg</SymbolPackageFormat>
+		<EmbedUntrackedSources>true</EmbedUntrackedSources> <!-- https://github.com/dotnet/sourcelink/issues/633 -->
+		
 		<EnforceCodeStyleInBuild>True</EnforceCodeStyleInBuild>
 		<EnableNETAnalyzers>True</EnableNETAnalyzers>
 		<AnalysisLevel>preview</AnalysisLevel>
@@ -52,12 +54,12 @@
 
 	<ItemGroup>
 		<PackageReference Include="Koek.CodeAnalysis" Version="2021.1130.17702">
-		  <PrivateAssets>all</PrivateAssets>
-		  <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+			<PrivateAssets>all</PrivateAssets>
+			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
 		</PackageReference>
 		<PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.1.1">
-		  <PrivateAssets>all</PrivateAssets>
-		  <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+			<PrivateAssets>all</PrivateAssets>
+			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
 		</PackageReference>
 		<PackageReference Include="prometheus-net" Version="4.1.1" />
 	</ItemGroup>
