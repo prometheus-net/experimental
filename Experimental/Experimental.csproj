@@ -22,7 +22,7 @@
 		<Copyright>Sander Saares</Copyright>
 		<Description>Addons to prometheus-net that may be useful but are completely unstable, published without any guarantees and may go away in the future.</Description>
 		<PackageReadmeFile>Readme.md</PackageReadmeFile>
-		<RepositoryUrl>https://github.com/prometheus-net/experimental.git</RepositoryUrl>
+		<PublishRepositoryUrl>true</PublishRepositoryUrl>
 		<PackageTags>prometheus metrics</PackageTags>
 		<PackageLicenseExpression>MIT</PackageLicenseExpression>
 
